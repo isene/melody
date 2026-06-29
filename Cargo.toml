@@ -3,7 +3,7 @@ name = "melody"
 version = "0.1.0"
 edition = "2021"
 authors = ["Geir Isene <g@isene.com>"]
-description = "Terminal melody maker: play, record and edit a piano line, export WAV for Suno. Built on crust."
+description = "Terminal melody maker: play, record and edit a piano line, export WAV as a song starting point. Built on crust."
 license = "Unlicense"
 repository = "https://github.com/isene/melody"
 

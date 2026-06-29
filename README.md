@@ -6,7 +6,7 @@
 
 ![Rust](https://img.shields.io/badge/language-Rust-f74c00) ![License](https://img.shields.io/badge/license-Unlicense-green) ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS-blue) ![Stay Amazing](https://img.shields.io/badge/Stay-Amazing-important)
 
-Compose a single piano line on a piano-roll, then export a clean WAV to use as the basis for a [Suno](https://suno.com) track. Play freely, record what you play (quantized to a grid, against a metronome), then tweak each note's pitch, length and strength. Built on [crust](https://github.com/isene/crust). Part of the [Fe₂O₃ Rust terminal suite](https://github.com/isene/fe2o3).
+Compose a single piano line on a piano-roll, then export a clean WAV to use as the basis for a fuller track (DAW, sampler, AI music tool, whatever you like). Play freely, record what you play (quantized to a grid, against a metronome), then tweak each note's pitch, length and strength. Built on [crust](https://github.com/isene/crust). Part of the [Fe₂O₃ Rust terminal suite](https://github.com/isene/fe2o3).
 
 No audio crate: notes are synthesised to PCM and streamed to a system player (`aplay`, `play`/sox, or `paplay`), so the sound device only wakes when something actually plays. WAV is written by hand.
 
@@ -55,13 +55,6 @@ Sound needs one of `aplay` (alsa-utils), `play` (sox) or `paplay` on the PATH. W
 Each note's colour shows its strength (cool = soft, hot = loud). While the
 melody plays, a cyan playhead marks the current position and the view scrolls
 to follow it; press any key to stop.
-
-## Make a Suno track
-
-1. Find the melody in **PLAY**, then `r` to **record** a take to the click.
-2. Tweak notes in **EDIT** (`H/L/K/J`, `+/-`, `1`–`9`, `x`).
-3. `e` to **export** a WAV.
-4. Upload the WAV to Suno as the basis for your song.
 
 ## Headless render
 

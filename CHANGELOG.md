@@ -16,5 +16,5 @@ Initial release.
   default), and `+`/`-` are reversible.
 - `?` modal keybinding help.
 - Self-synthesised piano tone (harmonics + ADSR), streamed to `aplay`.
-- WAV export for Suno; `.mel` text save/open (note line carries velocity);
+- WAV export; `.mel` text save/open (note line carries velocity);
   `--render` headless mode.
