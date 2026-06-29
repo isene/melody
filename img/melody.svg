@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+    <linearGradient id="rust" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f74c00"/>
+      <stop offset="100%" stop-color="#b7410e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- suite disc: dark face, rust ring -->
+  <circle cx="128" cy="128" r="120" fill="url(#bg)" stroke="url(#rust)" stroke-width="3"/>
+
+  <!-- piano-roll grid (faint) -->
+  <g stroke="#f74c00" stroke-width="0.6" opacity="0.16">
+    <line x1="44" y1="84"  x2="212" y2="84"/>
+    <line x1="44" y1="108" x2="212" y2="108"/>
+    <line x1="44" y1="132" x2="212" y2="132"/>
+    <line x1="44" y1="156" x2="212" y2="156"/>
+  </g>
+  <g stroke="#f74c00" stroke-width="0.8" opacity="0.26">
+    <line x1="86"  y1="72" x2="86"  y2="174"/>
+    <line x1="128" y1="72" x2="128" y2="174"/>
+    <line x1="170" y1="72" x2="170" y2="174"/>
+  </g>
+
+  <!-- notes: soft/cool -> loud/hot, a little melodic arch -->
+  <rect x="52"  y="150" width="26" height="14" rx="3" fill="#3a7aff"/>
+  <rect x="84"  y="126" width="26" height="14" rx="3" fill="#1ec8c8"/>
+  <rect x="116" y="100" width="30" height="14" rx="3" fill="#46d246" stroke="#33e0ff" stroke-width="2"/>
+  <rect x="150" y="118" width="22" height="14" rx="3" fill="#ff8c00"/>
+  <rect x="176" y="142" width="26" height="14" rx="3" fill="#f74c00"/>
+
+  <!-- cyan playhead crossing the note it's sounding -->
+  <line x1="128" y1="70" x2="128" y2="176" stroke="#33e0ff" stroke-width="2"/>
+  <polygon points="122,70 134,70 128,79" fill="#33e0ff"/>
+
+  <!-- wordmark -->
+  <text x="128" y="214" font-family="monospace" font-size="24" font-weight="bold" fill="url(#rust)" text-anchor="middle" letter-spacing="2">melody</text>
+</svg>

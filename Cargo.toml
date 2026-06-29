@@ -1,0 +1,16 @@
+[package]
+name = "melody"
+version = "0.1.0"
+edition = "2021"
+authors = ["Geir Isene <g@isene.com>"]
+description = "Terminal melody maker: play, record and edit a piano line, export WAV for Suno. Built on crust."
+license = "Unlicense"
+repository = "https://github.com/isene/melody"
+
+[dependencies]
+crust = { version = "0.1", path = "../crust", package = "fe2o3-crust" }
+crossterm = "0.28"
+
+[profile.release]
+opt-level = 3
+lto = true
