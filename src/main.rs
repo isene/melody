@@ -4,7 +4,7 @@
 //! (play along to a metronome; keystrokes are captured, quantized to the
 //! grid), and EDIT (a piano-roll where each note can be moved in pitch/time,
 //! lengthened, shortened or deleted). Export a clean WAV to use as the basis
-//! for a Suno track.
+//! for a fuller track in whatever tool you like.
 
 mod synth;
 
