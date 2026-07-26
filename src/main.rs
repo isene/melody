@@ -8,6 +8,7 @@
 
 mod synth;
 
+use crust::style;
 use crust::{Crust, Input, Pane, Popup};
 use synth::{Player, SR};
 
@@ -277,13 +278,13 @@ impl App {
         let dirty = if self.song.dirty { "*" } else { "" };
         let metro = if self.metro { "ON" } else { "off" };
         let h = format!(
-            " melody  {} BPM  {}/{}  grid {}  metro {}  \x1b[1m[{}]\x1b[0m  oct{}  {}{}",
+            " melody  {} BPM  {}/{}  grid {}  metro {}  {}  oct{}  {}{}",
             self.song.bpm,
             self.song.bpb,
             self.song.beat_unit,
             self.song.grid_label(),
             metro,
-            modestr,
+            style::bold(&format!("[{modestr}]")),
             self.base_oct,
             fname,
             dirty
@@ -324,7 +325,7 @@ impl App {
             }
             let p = self.top_pitch - i as u8;
             let lcol = if p % 12 == 0 { C_CLABEL } else { C_LABEL };
-            let mut line = format!("\x1b[38;5;{}m{:>4}\x1b[0m ", lcol, note_name(p));
+            let mut line = format!("{} ", style::styled(&format!("{:>4}", note_name(p)), Some(lcol as u8), None, ""));
             for c in 0..vis_ticks {
                 let t = self.left_tick + c;
                 let note_vel = self
@@ -338,19 +339,21 @@ impl App {
                 if is_play {
                     // moving playhead: light up the column; notes on it glow
                     let ch = if note_vel.is_some() { '\u{2588}' } else { '\u{2502}' };
-                    line.push_str(&format!("\x1b[38;5;{}m{}\x1b[0m", C_PLAY, ch));
+                    line.push_str(&style::styled(&ch.to_string(), Some(C_PLAY as u8), None, ""));
                 } else if is_cur {
                     let ch = if note_vel.is_some() { '\u{2588}' } else { '\u{258F}' };
-                    line.push_str(&format!(
-                        "\x1b[48;5;{}m\x1b[38;5;{}m{}\x1b[0m",
-                        C_CUR_BG, C_CUR_FG, ch
+                    line.push_str(&style::styled(
+                        &ch.to_string(),
+                        Some(C_CUR_FG as u8),
+                        Some(C_CUR_BG as u8),
+                        "",
                     ));
                 } else if let Some(v) = note_vel {
-                    line.push_str(&format!("\x1b[38;5;{}m\u{2588}\x1b[0m", vel_color(v)));
+                    line.push_str(&style::styled("\u{2588}", Some(vel_color(v) as u8), None, ""));
                 } else if t % bar == 0 {
-                    line.push_str(&format!("\x1b[38;5;{}m\u{2502}\x1b[0m", C_BARLINE));
+                    line.push_str(&style::styled("\u{2502}", Some(C_BARLINE as u8), None, ""));
                 } else if t % self.song.tpb == 0 {
-                    line.push_str(&format!("\x1b[38;5;{}m\u{00b7}\x1b[0m", C_BEAT));
+                    line.push_str(&style::styled("\u{00b7}", Some(C_BEAT as u8), None, ""));
                 } else {
                     line.push(' ');
                 }
