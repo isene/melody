@@ -425,7 +425,7 @@ impl App {
         let w = 62.min(cols.saturating_sub(2)).max(20);
         let h = lines.min(rows.saturating_sub(2)).max(3);
         let mut pop = Popup::centered(w, h, C_CUR_FG, 17);
-        pop.modal(content);
+        pop.view(content);
         pop.dismiss(&mut [&mut self.header, &mut self.roll, &mut self.status]);
         self.render();
     }
