@@ -752,6 +752,27 @@ impl App {
 }
 
 fn main() {
+    // --help and --version answer before the TUI touches the terminal.
+    // A tool that asks what this is — the fe2o3 launcher's ? popup, a
+    // packaging script, a curious shell — should get an answer, not a
+    // screen paint.
+    if std::env::args().skip(1).any(|a| a == "-h" || a == "--help") {
+        println!("melody — Melody maker (Fe2O3 suite)");
+        println!();
+        println!("Usage: melody [FILE] [--render OUT.wav]");
+        println!();
+        println!("  FILE              open this melody");
+        println!("  --render OUT.wav  render to WAV without opening the editor");
+        println!();
+        println!("A piano roll in the terminal: place notes, jam on the keyboard, record");
+        println!("against a metronome, then tweak pitch, length and strength.");
+        return;
+    }
+    if std::env::args().skip(1).any(|a| a == "-v" || a == "--version") {
+        println!("melody {}", env!("CARGO_PKG_VERSION"));
+        return;
+    }
+
     let args: Vec<String> = std::env::args().collect();
 
     // Headless: melody --render in.mel out.wav  (no TUI, for batch export).

@@ -1,6 +1,6 @@
 [package]
 name = "melody"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Geir Isene <g@isene.com>"]
 description = "Terminal melody maker: play, record and edit a piano line, export WAV as a song starting point. Built on crust."

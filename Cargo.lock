@@ -51,7 +51,7 @@ dependencies = [
 
 [[package]]
 name = "fe2o3-crust"
-version = "0.1.43"
+version = "0.1.46"
 dependencies = [
  "crossterm",
  "libc",
@@ -87,7 +87,7 @@ checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
 
 [[package]]
 name = "melody"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "crossterm",
  "fe2o3-crust",
