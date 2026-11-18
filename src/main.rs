@@ -373,7 +373,7 @@ impl App {
                 Mode::Record => " \u{25cf} REC — play along · Esc/Enter to stop".to_string(),
             }
         };
-        self.status.set_text(&status);
+        self.status.set_text(&crust::with_version(&status, self.status.w as usize, "melody", env!("CARGO_PKG_VERSION")));
         self.status.refresh();
     }
 
